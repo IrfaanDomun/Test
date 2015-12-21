@@ -3,7 +3,7 @@ t = time.time()
 import numpy as np
 # seed 1234 nb poinnt 1500 alpha -30
 # seed 1234 nb point 15 alpha -2  
-# seed 1234 nb point 15 alpha -1
+# seed 1234 nb point 15 alpha 1
 np.random.seed(1234)
 nombre_de_point = 15
 points = np.array([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]])
