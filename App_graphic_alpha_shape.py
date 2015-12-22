@@ -1,21 +1,22 @@
 __author__ ='Irfaan Domun'
-import sys, os, random
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-
+import sys#, os, random
+# from PyQt4.QtCore import *
+# from PyQt4.QtGui import *
+from PyQt4.QtGui import QMainWindow,QFileDialog,QMessageBox,QSlider,QWidget,QLineEdit,QCheckBox,QPushButton,QHBoxLayout,QVBoxLayout,QAction,QApplication,QLabel,QIcon
+from PyQt4.QtCore import SIGNAL,Qt
 import numpy as np
 
-from scipy.spatial import Voronoi, voronoi_plot_2d
+from scipy.spatial import Voronoi#, voronoi_plot_2d
 # vor = Voronoi(self.points,furthest_site =True)
 # vor1 = Voronoi(self.points,furthest_site =False)
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import math 
 
-from collections import namedtuple
+# from collections import namedtuple
 from math import sqrt
 import itertools
 
-import matplotlib
+# import matplotlib
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
 from matplotlib.figure import Figure
@@ -79,16 +80,16 @@ class AppForm(QMainWindow):
 #         box_self.points = event.artist.get_bbox().get_self.points()
         
 #         msg = "You've clicked on a bar with coords:\n %s" % box_self.points
-        msg = "x :" + str(event.xdata) +"\ny : "+ str(event.ydata) +"\n"
+#         msg = "x :" + str(event.xdata) +"\ny : "+ str(event.ydata) +"\n"
 #        #print self.data
 #         self.data.append(event.xdata)
-       #print self.points[:3],
+        #print self.points[:3],
         if self.points != []:
             self.points = np.append( self.points,[[event.xdata,event.ydata]],axis=0)
         else:
             self.points = [[event.xdata,event.ydata]]
         
-       # clear the axes and redraw the plot anew
+        # clear the axes and redraw the plot anew
         #
 #         self.axes.clear()        
 #         self.axes.grid(self.grid_cb.isChecked())
@@ -121,7 +122,7 @@ class AppForm(QMainWindow):
     #     q = sqrt(dx**2 + dy**2)
         q = self.dist(p1,p2)
         if q > 2.0*r:
-           #print q,2.0*r,r
+#            print q,2.0*r,r
             raise ValueError('separation of points > diameter')
         # halfway point
         x3, y3 = (x1+x2)/2, (y1+y2)/2
@@ -216,7 +217,7 @@ class AppForm(QMainWindow):
                                 alpha_extrem = False
                                 break                                                            
                         else : 
-                            if self.dist(c1,extrem) <= -1.0/self.alpha :
+                            if self.dist(c1,extrem) <= 1.0/self.alpha :
                                 pass
                             else :
                                 alpha_extrem = False
@@ -233,7 +234,7 @@ class AppForm(QMainWindow):
                                     alpha_extrem = False
                                     break                                                            
                             else : 
-                                if self.dist(c2,extrem) <= -1.0/self.alpha :
+                                if self.dist(c2,extrem) <= 1.0/self.alpha :
                                     pass
                                 else :
                                     alpha_extrem = False
